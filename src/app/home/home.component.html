@@ -1,0 +1,11 @@
+<div class="row card-container">
+    <div *ngFor="let documento of documentosData" class="col s3 mb-4 mt-4" style="bottom: 0px">
+        <div class="card" style="width: 18rem;">
+            <img [src]="documento.fileNameBlob" alt="{{documento.fileName}} Archivo" width="280px">
+
+            <h5 class="card-title">{{documento.title.toUpperCase()}}</h5>
+
+            <p class="card-text">{{documento.description.toUpperCase()}}</p>
+        </div>
+    </div>
+</div>

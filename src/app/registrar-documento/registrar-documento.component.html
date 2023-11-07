@@ -1,0 +1,89 @@
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center">Registro de Documentos</h3>
+    <form (ngSubmit)="onSubmit ()" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Título:</label>
+            <input type="text" class="form-control" id="title" [(ngModel)]="documento.title" name='titulo' required
+                minlength="3" maxlength="60" placeholder="Ingrese el título" #title="ngModel">
+
+            <!-- <div class="alert alert-danger" *ngIf="title.invalid && (title.dirty || title.touched )">
+                <div *ngIf="title.errors ['required']">
+                    Ingrese su title
+                </div>
+
+                <div *ngIf="title.errors ['minlength']">
+                    El title debe tener como minimo 3 caracteres
+                </div>
+                <div *ngIf="title.errors ['maxlength']">
+                    El title debe tener como maximo 60
+                </div>
+            </div> -->
+        </div>
+
+
+        <div class="form-group">
+            <label>Descripción:</label>
+            <input type="text" class="form-control" id="description" [(ngModel)]="documento.description"
+                name='description' required minlength="3" maxlength="60" placeholder="Ingrese su description"
+                #description="ngModel">
+
+            <!-- <div class="alert alert-danger" *ngIf="description.invalid && (description.dirty || description.touched )">
+                <div *ngIf="description.errors ['required']">
+                    Ingrese su description
+                </div>
+
+                <div *ngIf="description.errors ['minlength']">
+                    El description debe tener como minimo 3 caracteres
+                </div>
+                <div *ngIf="description.errors ['maxlength']">
+                    El description debe tener como maximo 60
+                </div>
+            </div> -->
+        </div>
+
+        <button class="btn btn-success">Guardar</button>
+
+        <div class="container row">
+            <div class="col-md-12">
+                <h1>Upload Image</h1>
+            </div>
+        </div>
+
+        <div class="container row">
+            <div class="col-md-6">
+                <input type="file" (change)="onFileChanged($event)">
+
+            </div>
+            <div class="col-md-6">
+                <input type="button" (click)="onUpload()" value="upload">
+            </div>
+        </div>
+        <hr />
+        <div class="container row">
+            <div class="col-md-12">
+                <div *ngIf=message>{{message}}</div>
+            </div>
+        </div>
+
+        <div class="container row">
+            <div class="col-md-6">
+                <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="fileName"
+                    name="name" />
+            </div>
+            <div class="col-md-6">
+                <input type="button" (click)="getFile()" value="Get Image">
+
+            </div>
+        </div>
+
+        <div class="container row">
+            <div class="col-md-12">
+                <div *ngIf=retrievedImage>
+                    <img [src]="retrievedImage">
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+</div>
